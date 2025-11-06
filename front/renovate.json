@@ -1,0 +1,68 @@
+{
+  "extends": ["config:recommended"],
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 10,
+  "branchConcurrentLimit": 10,
+  "prCreation": "immediate",
+  "minimumReleaseAge": "7 days",
+  "rangeStrategy": "pin",
+  "addLabels": ["🔗 dependencies"],
+  "schedule": ["every weekend", "before 5am every weekday"],
+  "dependencyDashboardTitle": "👷‍♀️ Dependency Dashboard",
+  "dependencyDashboardHeader": "[👮‍♂️ Do not close]. This issue provides visibility into Renovate updates and their statuses. [Learn more](https://docs.renovatebot.com/key-concepts/dashboard/)",
+  "dependencyDashboardLabels": ["🙅 Don't close"],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": "at any time"
+  },
+  "packageRules": [
+    {
+      "matchDepTypes": ["engines"],
+      "rangeStrategy": "replace",
+      "commitMessagePrefix": "chore(deps-engines):"
+    },
+    {
+      "matchPackageNames": ["@types/react", "@types/react-dom", "@types/react-router-dom"],
+      "groupName": "React types",
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchPackageNames": ["@testing-library/*", "cypress"],
+      "groupName": "Testing library",
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchPackageNames": ["eslint", "eslint-plugin-*", "@eslint/*"],
+      "groupName": "ESLint",
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchPackageNames": ["@babel/*"],
+      "groupName": "Babel",
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchPackageNames": [
+        "@apollo/*",
+        "apollo-*",
+        "@types/apollo-*",
+        "@graphql-codegen/typescript-react-apollo"
+      ],
+      "groupName": "Apollo",
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "chore(deps-major)"
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "commitMessagePrefix": "chore(deps-minor)"
+    },
+    {
+      "matchUpdateTypes": ["patch", "digest", "bump"],
+      "commitMessagePrefix": "chore(deps)",
+      "reviewers": ["renovate-approve"]
+    }
+  ]
+}

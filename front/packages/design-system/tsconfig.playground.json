@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+    }
+  },
+  "include": ["playground/**/*", "src/**/*", "../../materialUiTheme.d.ts"]
+}

@@ -1,0 +1,13 @@
+{
+  "include": ["**/*.tsx", "**/*.ts", "**/*.d.ts"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "paths": {
+      "~/*": ["*"],
+    },
+  },
+  "exclude": ["node_modules", "cypress", "packages"],
+  "extends": "lago-configs/tsconfig",
+}
