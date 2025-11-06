@@ -53,7 +53,7 @@ COPY ./docker/nginx.conf /etc/nginx/sites-enabled/default
 COPY --from=front_build /app/dist /app/front
 COPY --from=api_build /usr/local/bundle/ /usr/local/bundle
 
-COPY ./front/.env.sh ./front/.env.sh
+# COPY ./front/.env.sh ./front/.env.sh
 COPY ./api ./api
 COPY ./docker/Procfile ./api/Procfile
 COPY ./docker/runner.sh ./runner.sh
