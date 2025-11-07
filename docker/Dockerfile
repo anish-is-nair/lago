@@ -1,10 +1,10 @@
-
-FROM ruby:3.2.3
-# Disable ClickHouse completely at build time
-ENV LAGO_CLICKHOUSE_ENABLED=false LAGO_CLICKHOUSE_MIGRATIONS_ENABLED=false DISABLE_CLICKHOUSE=true
-
 ARG NODE_VERSION=20
 ARG RUBY_VERSION=3.4.7
+
+FROM ruby:${RUBY_VERSION}-slim AS base
+
+# Disable ClickHouse completely at build time
+ENV LAGO_CLICKHOUSE_ENABLED=false LAGO_CLICKHOUSE_MIGRATIONS_ENABLED=false DISABLE_CLICKHOUSE=true
 
 # Front Build
 FROM node:$NODE_VERSION-alpine AS front_build
